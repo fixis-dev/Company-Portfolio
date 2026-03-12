@@ -1,0 +1,96 @@
+.privacy-main {
+    padding-top: 100px;
+}
+
+.privacy-hero {
+    padding: 8rem 8% 4rem 8%;
+    text-align: center;
+}
+
+.privacy-hero h1 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    margin-bottom: 1.5rem;
+}
+
+.privacy-hero p {
+    margin: 0 auto;
+    max-width: 600px;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.privacy-content {
+    padding: 2rem 8% 8rem 8%;
+}
+
+.privacy-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.policy-section {
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.policy-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+.policy-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0;
+    max-width: 100%;
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.policy-section a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.policy-section a:hover {
+    color: var(--secondary);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+    animation-delay: calc(var(--delay) * 0.1s);
+}
+
+@media (max-width: 768px) {
+    .policy-section {
+        padding: 2rem;
+    }
+    
+    .privacy-hero {
+        padding: 4rem 5%;
+    }
+}
