@@ -336,7 +336,6 @@
     to { transform: rotate(360deg); }
 }
 
-/* Responsive */
 @media (max-width: 968px) {
     .contact-container {
         grid-template-columns: 1fr;
@@ -350,5 +349,20 @@
     
     .info-block {
         text-align: left;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-hero .glitch {
+        font-size: 2.5rem;
+    }
+    .contact-hero p {
+        font-size: 1rem;
+    }
+    .glass-form {
+        padding: 2rem 1.5rem;
+    }
+    .contact-info h2 {
+        font-size: 2rem;
     }
 }
