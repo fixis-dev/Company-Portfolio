@@ -43,6 +43,25 @@ if (backToTopBtn) {
     });
 }
 
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menu-toggle');
+const nav = document.querySelector('nav');
+
+if (menuToggle && nav) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            nav.classList.remove('active');
+        });
+    });
+}
+
 // Custom Cursor Elements
 const cursorDot = document.getElementById('cursor-dot');
 const cursorGlow = document.getElementById('cursor-glow');
