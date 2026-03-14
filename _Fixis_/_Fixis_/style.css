@@ -107,6 +107,7 @@ header.scrolled {
     letter-spacing: 2px;
     background: linear-gradient(90deg, var(--primary), var(--text-color));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
 }
@@ -204,6 +205,7 @@ h1 {
 .gradient-text {
     background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% auto;
     animation: gradientShift 5s ease infinite;
@@ -417,6 +419,7 @@ p {
     margin-bottom: 1.5rem;
     background: -webkit-linear-gradient(45deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
 }
@@ -876,3 +879,205 @@ a.social-link:hover {
 .c6 { width: 90px; height: 130px; top: 72%; right: 15%; animation: floatCrystal2 28s infinite linear; border-color: rgba(255, 0, 85, 0.4); box-shadow: 0 8px 32px 0 rgba(0,0,0,0.5), inset 0 0 20px rgba(255, 0, 85, 0.2); }
 .c7 { width: 110px; height: 130px; top: 85%; left: 20%; animation: floatCrystal1 32s infinite linear; border-color: rgba(0, 240, 255, 0.3); box-shadow: 0 8px 32px 0 rgba(0,0,0,0.5), inset 0 0 20px rgba(0, 240, 255, 0.15); }
 .c8 { width: 150px; height: 190px; top: 92%; right: 6%; animation: floatCrystal2 38s infinite linear; border-color: rgba(112, 0, 255, 0.3); box-shadow: 0 8px 32px 0 rgba(0,0,0,0.5), inset 0 0 20px rgba(112, 0, 255, 0.15); }
+
+/* --- Responsive Styles & Media Queries --- */
+
+/* Hide custom cursor on touch devices and small screens */
+@media (hover: none) and (pointer: coarse), (max-width: 1024px) {
+    .cursor-dot, .cursor-glow {
+        display: none !important;
+    }
+    body, a, button, .canvas-container, .feature-card, .service-card, .testimonial-card, .project-card, .social-link {
+        cursor: auto !important;
+    }
+}
+
+/* Base Responsive Padding */
+@media (max-width: 1024px) {
+    header {
+        padding: 1.5rem 5%;
+    }
+    .hero {
+        padding: 0 5%;
+    }
+    .why-us, .services, .testimonials, .projects, .socials-footer {
+        padding: 6rem 5%;
+    }
+}
+
+/* Tablet (Large Mobile) */
+@media (max-width: 991px) {
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        z-index: 1001;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(9.5px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9.5px) rotate(-45deg);
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: rgba(3, 3, 5, 0.98);
+        backdrop-filter: blur(20px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        z-index: 1000;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav.active {
+        right: 0;
+    }
+
+    nav a {
+        margin: 1.5rem 0;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-left: 0;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        justify-content: center;
+        text-align: center;
+        padding-top: 100px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .canvas-container {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        margin-bottom: 2rem;
+        right: auto;
+        top: auto;
+    }
+
+    .hero::before {
+        display: none;
+    }
+
+    .content {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+
+    p {
+        margin: 0 auto 2.5rem auto;
+    }
+
+    .cta-group {
+        justify-content: center;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .footer-brand p {
+        margin: 1.5rem auto;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        text-align: left;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .features-grid, .services-grid, .testimonials-grid, .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-image-placeholder {
+        height: 180px;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .legal-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero {
+        padding-top: 120px;
+    }
+
+    .canvas-container {
+        height: 300px;
+    }
+}
