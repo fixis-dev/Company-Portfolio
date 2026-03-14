@@ -69,6 +69,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.querySelector('nav');
+
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+    }
+
     // --- Intersection Observer for Scroll Entrance Animations ---
     const animElements = document.querySelectorAll('.animate-up, .animate-fade, .animate-slide-left, .animate-slide-right');
     
